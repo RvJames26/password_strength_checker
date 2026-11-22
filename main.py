@@ -3,13 +3,12 @@ from rules import LengthRule, UppercaseRule, LowercaseRule, NumberRule, SpecialC
 from checker_pass import CheckerPass
 
 input_password = Pass()
-print(input_password)
 
 rules = [LengthRule(), UppercaseRule(), LowercaseRule(), NumberRule(), SpecialCharacterRule()]
 
 for rule in rules:
     result = rule.check(input_password.password)
-    print(rule, result)
+    print(f"{rule}: {'Pass' if result else 'Fail'}")
 
 checker = CheckerPass(input_password.password)
-print(checker.verify())
+print("Password Strength:", checker.verify())
