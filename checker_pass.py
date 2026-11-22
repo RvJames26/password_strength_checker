@@ -1,9 +1,9 @@
-from rules import LengthRule, UppercaseRule, LowercaseRule, NumberRule, SpecialCharacterRule, CommonPasswordRule
+from rules import LengthRule, UppercaseRule, LowercaseRule, NumberRule, SpecialCharacterRule, CommonPasswordRule, NoRepeatRule
 
 class CheckerPass:
     def __init__(self, password):
         self.password = password
-        self.rules = [LengthRule(), UppercaseRule(), LowercaseRule(), NumberRule(), SpecialCharacterRule(), CommonPasswordRule()]
+        self.rules = [LengthRule(), UppercaseRule(), LowercaseRule(), NumberRule(), SpecialCharacterRule(), CommonPasswordRule(), NoRepeatRule()]
 
     def verify(self):
         score = 0

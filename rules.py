@@ -78,3 +78,8 @@ class CommonPasswordRule(Rule):
     def check(self, password):
         pwd = password.lower()
         return not any(common in pwd for common in self.common_passwords if len(common) >= 4)
+
+class NoRepeatRule(Rule):
+    def __str__(self): return "No Consecutive Repeats"
+    def check(self, password):
+        return not any(c * 3 in password for c in password)

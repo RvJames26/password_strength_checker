@@ -1,14 +1,18 @@
 from password import Pass
-from rules import LengthRule, UppercaseRule, LowercaseRule, NumberRule, SpecialCharacterRule, CommonPasswordRule
+from rules import LengthRule, UppercaseRule, LowercaseRule, NumberRule, SpecialCharacterRule, CommonPasswordRule, NoRepeatRule
 from checker_pass import CheckerPass
 
-input_password = Pass()
+while True:
 
-rules = [LengthRule(), UppercaseRule(), LowercaseRule(), NumberRule(), SpecialCharacterRule(), CommonPasswordRule()]
+    input_password = Pass()
+    if input_password.password.lower() in ("exit", "quit", "q"):
+        break
 
-for rule in rules:
-    result = rule.check(input_password.password)
-    print(f"{rule}: {'Pass' if result else 'Fail'}")
+    rules = [LengthRule(), UppercaseRule(), LowercaseRule(), NumberRule(), SpecialCharacterRule(), CommonPasswordRule(), NoRepeatRule()]
 
-checker = CheckerPass(input_password.password)
-print("Password Strength:", checker.verify())
+    for rule in rules:
+        result = rule.check(input_password.password)
+        print(f"{rule}: {'Pass' if result else 'Fail'}")
+
+    checker = CheckerPass(input_password.password)
+    print("Password Strength:", checker.verify())
