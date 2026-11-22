@@ -1,7 +1,9 @@
+import getpass
+
 class Pass:
 
     def __init__(self):
-        self.password = input("Enter password: ")
+        self.password = getpass.getpass("Enter password: ")
 
     def __str__(self):
         return self.password
