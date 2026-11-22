@@ -1,10 +1,10 @@
 from password import Pass
-from rules import LengthRule, UppercaseRule, LowercaseRule, NumberRule, SpecialCharacterRule
+from rules import LengthRule, UppercaseRule, LowercaseRule, NumberRule, SpecialCharacterRule, CommonPasswordRule
 from checker_pass import CheckerPass
 
 input_password = Pass()
 
-rules = [LengthRule(), UppercaseRule(), LowercaseRule(), NumberRule(), SpecialCharacterRule()]
+rules = [LengthRule(), UppercaseRule(), LowercaseRule(), NumberRule(), SpecialCharacterRule(), CommonPasswordRule()]
 
 for rule in rules:
     result = rule.check(input_password.password)
