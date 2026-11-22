@@ -76,4 +76,5 @@ class CommonPasswordRule(Rule):
         return "Not a Common Password"
 
     def check(self, password):
-        return password.lower() not in self.common_passwords
+        pwd = password.lower()
+        return not any(common in pwd for common in self.common_passwords if len(common) >= 4)
